@@ -1,0 +1,61 @@
+
+<div class="container ">
+    <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4 register">
+            <div class="panel panel-default ml-5 ">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Please sign up </h3>
+                </div>
+                <div class="panel-body">
+                    <form  [formGroup]="registerform"  >
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
+                                <div class="form-group">
+                                    <input type="text" id="first_name" class="form-control input-sm"
+                                        placeholder=" Name" formControlName="name" required>
+                            
+                                </div>
+                                <small class="text-danger"
+                                *ngIf="(registerformcontrol.name.touched) && registerform.controls.name.errors?.required">
+                               First Name is required
+                            </small>
+                            <small class="text-danger"
+                                *ngIf=" registerformcontrol.name.hasError('trimError')">
+                              should not have white space
+                            </small>
+                            </div>
+                           
+                        </div>
+
+                       <div class="form-group">
+  	<input placeholder="enter email" type="email" class="form-control"
+    	formControlName="email" required/>
+
+  	<div *ngIf="(registerform.controls.email.invalid && registerform.controls.email.touched) || registerform.controls.email.dirty">
+    	<small *ngIf="registerformcontrol.email.errors?.required" class="text-danger"> email is required</small>
+    	<small *ngIf="registerformcontrol.email.errors?.email" class="text-danger">Please provide a valid email address</small>
+  	</div>
+
+	</div>
+
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
+                                <div class="form-group">
+                                    <input type="password" name="password" id="password" class="form-control input-sm"
+                                        placeholder="Password" formControlName="password">
+                                        <div *ngIf="(registerformcontrol.password.invalid && registerform.controls.password.touched) || registerform.controls.password.dirty">
+                                            <small *ngIf="registerformcontrol.password.errors?.required" class="text-danger"> password is required</small>
+                                          </div>
+                                    </div>
+                                
+                            </div>
+                           
+                        </div>
+                        <input type="submit" value="Register" class="btn btn-info btn-block" [disabled]="!registerform.valid" >
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

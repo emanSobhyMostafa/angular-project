@@ -9,6 +9,8 @@
         "@schematics/angular:component": {
           "style": "scss"
         }
+       
+      
       },
       "root": "",
       "sourceRoot": "src",
@@ -28,7 +30,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/scss/font-awesome.scss"
+
             ],
             "scripts": []
           },
@@ -65,11 +70,13 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-project:build"
+            "browserTarget": "angular-project:build",
+            "port": 4100
           },
           "configurations": {
             "production": {
               "browserTarget": "angular-project:build:production"
+              
             }
           }
         },

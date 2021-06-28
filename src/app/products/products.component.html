@@ -1,0 +1,16 @@
+<div class="product ">
+    <div class="container">
+        <div class="row ">
+            <div class="d-flex col-lg-6" *ngFor="let product of productList">
+                <div>
+                    <a [routerLink]="['/products/product-details']" [queryParams]="{id:product.id}">
+                        <img src="{{product.image}}" alt="" class="mt-5"></a>
+                </div>
+                <div class="mt-5 pt-lg-5">price: {{product.price}}
+
+                    <button (click)="add()">Add to cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
